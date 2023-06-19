@@ -6,29 +6,33 @@ import "./assets/img/rigo-baby.jpg";
 import "./assets/img/4geeks.ico";
 
 window.onload = function() {
-  //write your code here
-  let webs = [];
-  var pronoun = ["the", "our"];
-  var adj = ["great", "big"];
-  var noun = ["jogger", "racoon"];
-  var dot = [".com", ".es", ".net"];
+  function nameGenerator(pronoun, adj, noun, dot) {
+    let finalListOfDomains = [];
 
-  for (let i = 0; i < pronoun.length; i++) {
-    for (let itwo = 0; itwo < adj.length; itwo++) {
-      for (let ithree = 0; ithree < noun.length; ithree++) {
-        for (let ifour = 0; ifour < dot.length; ifour++) {
-          let hola = pronoun[i] + adj[itwo] + noun[ithree] + dot[ifour];
-          webs.push(hola);
+    for (let i = 0; i < pronoun.length; i++) {
+      for (let j = 0; j < adj.length; j++) {
+        for (let k = 0; k < noun.length; k++) {
+          for (let h = 0; h < dot.length; h++) {
+            let domain = pronoun[i] + adj[j] + noun[k] + dot[h];
+            finalListOfDomains.push(domain);
+          }
         }
       }
     }
+
+    return finalListOfDomains;
   }
 
-  let websparahtml = document.querySelector("#aqui");
+  const a = ["the", "our"];
+  const b = ["great", "big"];
+  const c = ["jogger", "racoon"];
+  const d = [".com", ".es", ".net"];
 
-  for (let item = 0; item < webs.length; item++) {
-    websparahtml.innerHTML += "<li>" + webs[item] + "</li>";
+  const nameGeneratorWeb = nameGenerator(a, b, c, d);
+
+  let nameGeneratorWebhtml = document.querySelector("#aqui");
+
+  for (let item = 0; item < nameGeneratorWeb.length; item++) {
+    nameGeneratorWebhtml.innerHTML += "<li>" + nameGeneratorWeb[item] + "</li>";
   }
-
-  console.log(webs);
 };
